@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'app_router.dart';
+import 'package:juhayna_smart_production_and_inventory_management_system/features/splash/splash_screen.dart';
+
 import 'app_theme.dart';
+import 'app_router.dart';
 
 class JSPIMSApp extends StatelessWidget {
   const JSPIMSApp({super.key});
@@ -8,11 +10,11 @@ class JSPIMSApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "JSPIMS",
-
       debugShowCheckedModeBanner: false,
-
+      title: "JSPIMS",
       theme: AppTheme.lightTheme,
+
+      initialRoute: '/',
 
       onGenerateRoute: AppRouter.generateRoute,
     );

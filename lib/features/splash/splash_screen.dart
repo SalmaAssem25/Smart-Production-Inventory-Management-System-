@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:juhayna_smart_production_and_inventory_management_system/features/authentication/login_screen.dart';
 
 import '../../app/colors.dart';
 import '../../app/constants.dart';
@@ -16,8 +17,9 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Future.delayed(const Duration(seconds: 3), () {
-      // TODO:
-      // Navigate to Login Screen
+      if (!mounted) return;
+
+      Navigator.pushReplacementNamed(context, '/login');
     });
   }
 
