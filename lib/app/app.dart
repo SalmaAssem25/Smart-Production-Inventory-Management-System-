@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:juhayna_smart_production_and_inventory_management_system/features/splash/splash_screen.dart';
-
 import 'app_theme.dart';
 import 'app_router.dart';
 
