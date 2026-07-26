@@ -73,7 +73,9 @@ class LoginForm extends StatelessWidget {
           CustomButton(
             title: "Login",
             icon: Icons.arrow_forward,
-            onPressed: controller.login,
+            onPressed: () async {
+              await controller.login();
+            },
           ),
 
           const SizedBox(height: 28),
