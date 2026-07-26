@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "201487746696",
+    "project_id": "jspims",
+    "storage_bucket": "jspims.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201487746696:android:35bb56ef68a4c92b9fc13d",
+        "android_client_info": {
+          "package_name": "com.example.juhayna_smart_production_and_inventory_management_system"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGul1eZLMQEuQpmmjxcNMnIt5zX5UlDzs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
