@@ -1,11 +1,12 @@
 class AppConstants {
   AppConstants._();
 
-  static const appName = "JSPIMS";
+  static const String appName = "JSPIMS";
 
-  static const appSubtitle = "Smart Production & Inventory Management";
+  static const String appSubtitle = "Smart Production & Inventory Management";
 
-  static const version = "Industrial OPS v4.2";
+  static const Duration splashDuration = Duration(seconds: 3);
 
-  static const animationDuration = Duration(milliseconds: 300);
+  static const String version = "Industrial OPS v4.2";
+  static const String logoPath = "assets/logos/logo.png";
 }

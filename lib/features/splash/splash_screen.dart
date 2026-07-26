@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../app/colors.dart';
 import '../../app/constants.dart';
 
@@ -15,9 +14,10 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(seconds: 3), () {
-      // TODO:
-      // Navigate to Login Screen
+    Future.delayed(const Duration(seconds: 5), () {
+      if (!mounted) return;
+
+      Navigator.pushReplacementNamed(context, '/login');
     });
   }
 
