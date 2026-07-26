@@ -15,7 +15,7 @@ class JSPIMSApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
 
       initialRoute: '/',
-
+      //home: const LoginScreen(),
       onGenerateRoute: AppRouter.generateRoute,
     );
   }

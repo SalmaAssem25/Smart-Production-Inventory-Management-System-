@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
-  final String label;
+  final String? label;
   final String hint;
   final IconData prefixIcon;
   final Widget? suffixIcon;
@@ -12,7 +12,7 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
     required this.controller,
-    required this.label,
+    this.label,
     required this.hint,
     required this.prefixIcon,
     this.suffixIcon,
@@ -26,7 +26,7 @@ class CustomTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          label,
+          label!,
           style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
 
