@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import '../../dashboard/dashboard_screen.dart';
 
 class LoginController {
+  final BuildContext context;
+
+  LoginController(this.context);
+
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -8,6 +13,13 @@ class LoginController {
 
   void togglePassword() {
     obscurePassword = !obscurePassword;
+  }
+
+  void login() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (_) => const DashboardScreen()),
+    );
   }
 
   void dispose() {

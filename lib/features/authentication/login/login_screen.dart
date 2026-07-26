@@ -14,7 +14,12 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final controller = LoginController();
+  late LoginController controller;
+  @override
+  void initState() {
+    super.initState();
+    controller = LoginController(context);
+  }
 
   @override
   void dispose() {
