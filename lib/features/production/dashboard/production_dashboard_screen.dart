@@ -21,7 +21,16 @@ class ProductionDashboardScreen extends StatelessWidget {
         stream: controller.batches,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircularProgressIndicator(),
+                  SizedBox(height: 16),
+                  Text("Loading production dashboard..."),
+                ],
+              ),
+            );
           }
 
           if (snapshot.hasError) {
