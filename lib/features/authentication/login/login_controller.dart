@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:juhayna_smart_production_and_inventory_management_system/core/services/auth_service.dart';
+import 'package:juhayna_smart_production_and_inventory_management_system/features/home/main_navigation.dart';
 import '../../dashboard/dashboard_screen.dart';
 import 'package:juhayna_smart_production_and_inventory_management_system/core/services/user_service.dart';
 import 'package:juhayna_smart_production_and_inventory_management_system/features/production/dashboard/production_dashboard_screen.dart';
@@ -48,9 +49,7 @@ class LoginController {
           print(">>>>>>>> Opening Production Dashboard <<<<<<<<");
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(
-              builder: (_) => const ProductionDashboardScreen(),
-            ),
+            MaterialPageRoute(builder: (_) => const MainNavigation()),
           );
           break;
 
