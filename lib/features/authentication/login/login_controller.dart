@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:juhayna_smart_production_and_inventory_management_system/core/services/auth_service.dart';
+import 'package:juhayna_smart_production_and_inventory_management_system/core/utils/extensions.dart';
+import 'package:juhayna_smart_production_and_inventory_management_system/features/home/main_navigation.dart';
 import 'package:juhayna_smart_production_and_inventory_management_system/core/services/user_service.dart';
 
 class LoginController extends ChangeNotifier {
