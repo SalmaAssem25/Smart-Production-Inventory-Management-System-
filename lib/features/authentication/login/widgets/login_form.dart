@@ -5,6 +5,7 @@ import 'package:juhayna_smart_production_and_inventory_management_system/feature
 import 'package:juhayna_smart_production_and_inventory_management_system/features/authentication/login/login_controller.dart';
 import 'package:juhayna_smart_production_and_inventory_management_system/features/home/main_navigation.dart';
 import 'package:juhayna_smart_production_and_inventory_management_system/features/dashboard/dashboard_screen.dart';
+import 'package:juhayna_smart_production_and_inventory_management_system/core/utils/extensions.dart';
 
 class LoginForm extends StatelessWidget {
   final LoginController controller;
@@ -59,12 +60,7 @@ class LoginForm extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: TextButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => const ForgotPasswordScreen(),
-                  ),
-                );
+                context.push(const ForgotPasswordScreen());
               },
               child: const Text("Forgot Password?"),
             ),
@@ -83,17 +79,16 @@ class LoginForm extends StatelessWidget {
 
                 switch (role) {
                   case 'Production Supervisor':
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (_) => const MainNavigation()),
-                    );
+                    context.pushReplacement(const MainNavigation());
                     break;
 
                   case 'Warehouse Staff':
                     // TODO: Replace with WarehouseDashboardScreen when created
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (_) => const DashboardScreen()),
+                      MaterialPageRoute(
+                        builder: (_) => const DashboardScreen(),
+                      ),
                     );
                     break;
 
@@ -101,7 +96,9 @@ class LoginForm extends StatelessWidget {
                     // TODO: Replace with ManagerDashboardScreen when created
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (_) => const DashboardScreen()),
+                      MaterialPageRoute(
+                        builder: (_) => const DashboardScreen(),
+                      ),
                     );
                     break;
 
