@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:juhayna_smart_production_and_inventory_management_system/core/models/batch_model.dart';
-import 'package:juhayna_smart_production_and_inventory_management_system/features/production/dashboard/production_dashboard_controller.dart';
+import 'package:juhayna_smart_production_and_inventory_management_system/core/utils/extensions.dart';
+import 'package:juhayna_smart_production_and_inventory_management_system/features/production/create_batch/create_batch_screen.dart';
 import 'package:juhayna_smart_production_and_inventory_management_system/features/production/dashboard/widgets/batch_card.dart';
 import 'package:juhayna_smart_production_and_inventory_management_system/features/production/dashboard/widgets/production_calendar.dart';
-import 'package:juhayna_smart_production_and_inventory_management_system/features/production/create_batch/create_batch_screen.dart';
+
+import 'production_controller.dart';
 
 class ProductionScreen extends StatefulWidget {
   const ProductionScreen({super.key});
@@ -13,13 +15,13 @@ class ProductionScreen extends StatefulWidget {
 }
 
 class _ProductionScreenState extends State<ProductionScreen> {
-  late final ProductionDashboardController controller;
+  late final ProductionController controller;
 
   @override
   void initState() {
     super.initState();
 
-    controller = ProductionDashboardController();
+    controller = ProductionController();
 
     controller.addListener(() {
       setState(() {});
@@ -36,13 +38,10 @@ class _ProductionScreenState extends State<ProductionScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (_) => const CreateBatchScreen()),
-          );
+          context.push(const CreateBatchScreen());
         },
+        child: const Icon(Icons.add),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -62,6 +61,10 @@ class _ProductionScreenState extends State<ProductionScreen> {
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return const Center(child: CircularProgressIndicator());
+                  }
+
+                  if (snapshot.hasError) {
+                    return Center(child: Text(snapshot.error.toString()));
                   }
 
                   final batches = snapshot.data ?? [];
