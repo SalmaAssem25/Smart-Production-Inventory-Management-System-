@@ -6,7 +6,7 @@ import '../../dashboard/dashboard_screen.dart';
 import 'package:juhayna_smart_production_and_inventory_management_system/core/services/user_service.dart';
 import 'package:juhayna_smart_production_and_inventory_management_system/features/production/dashboard/production_dashboard_screen.dart';
 
-class LoginController {
+class LoginController extends ChangeNotifier {
   final BuildContext context;
 
   LoginController(this.context);
@@ -15,13 +15,18 @@ class LoginController {
   final TextEditingController passwordController = TextEditingController();
 
   bool obscurePassword = true;
+  bool isLoading = false;
 
   void togglePassword() {
     obscurePassword = !obscurePassword;
+    notifyListeners();
   }
 
   Future<void> login() async {
     try {
+      isLoading = true;
+      notifyListeners();
+
       await AuthService.signIn(
         email: emailController.text,
         password: passwordController.text,
@@ -76,6 +81,9 @@ class LoginController {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(e.toString()), backgroundColor: Colors.red),
       );
+    } finally {
+      isLoading = false;
+      notifyListeners();
     }
   }
 

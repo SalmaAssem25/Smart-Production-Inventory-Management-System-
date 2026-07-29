@@ -19,6 +19,9 @@ class _LoginScreenState extends State<LoginScreen> {
   void initState() {
     super.initState();
     controller = LoginController(context);
+    controller.addListener(() {
+      setState(() {});
+    });
   }
 
   @override
