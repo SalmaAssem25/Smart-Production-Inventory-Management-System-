@@ -3,6 +3,8 @@ import 'package:juhayna_smart_production_and_inventory_management_system/core/wi
 import 'package:juhayna_smart_production_and_inventory_management_system/core/widgets/custom_textfield.dart';
 import 'package:juhayna_smart_production_and_inventory_management_system/features/authentication/forgot_pass_screen.dart';
 import 'package:juhayna_smart_production_and_inventory_management_system/features/authentication/login/login_controller.dart';
+import 'package:juhayna_smart_production_and_inventory_management_system/features/home/main_navigation.dart';
+import 'package:juhayna_smart_production_and_inventory_management_system/features/dashboard/dashboard_screen.dart';
 
 class LoginForm extends StatelessWidget {
   final LoginController controller;
@@ -75,7 +77,46 @@ class LoginForm extends StatelessWidget {
             icon: Icons.arrow_forward,
             isLoading: controller.isLoading,
             onPressed: () async {
-              await controller.login();
+              try {
+                final role = await controller.login();
+                if (!context.mounted) return;
+
+                switch (role) {
+                  case 'Production Supervisor':
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (_) => const MainNavigation()),
+                    );
+                    break;
+
+                  case 'Warehouse Staff':
+                    // TODO: Replace with WarehouseDashboardScreen when created
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (_) => const DashboardScreen()),
+                    );
+                    break;
+
+                  case 'Manager':
+                    // TODO: Replace with ManagerDashboardScreen when created
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (_) => const DashboardScreen()),
+                    );
+                    break;
+
+                  default:
+                    throw Exception("Unknown user role: $role");
+                }
+              } catch (e) {
+                if (!context.mounted) return;
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(e.toString()),
+                    backgroundColor: Colors.red,
+                  ),
+                );
+              }
             },
           ),
 
