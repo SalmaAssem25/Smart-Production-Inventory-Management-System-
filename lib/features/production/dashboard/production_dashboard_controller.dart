@@ -17,6 +17,7 @@ class ProductionDashboardController extends ChangeNotifier {
 
   Stream<List<ProductionBatchModel>> get batchesForSelectedDay =>
       ProductionService.getBatchesForDate(selectedDay);
+
   int getTotal(List<ProductionBatchModel> batches) {
     return batches.length;
   }

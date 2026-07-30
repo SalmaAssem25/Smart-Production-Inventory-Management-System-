@@ -12,6 +12,14 @@ extension NavigationExtension on BuildContext {
     );
   }
 
+  Future<T?> pushAndRemoveUntil<T>(Widget page) {
+    return Navigator.pushAndRemoveUntil<T>(
+      this,
+      MaterialPageRoute(builder: (_) => page),
+      (route) => false,
+    );
+  }
+
   void pop<T extends Object?>([T? result]) {
     Navigator.pop(this, result);
   }
