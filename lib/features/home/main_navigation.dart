@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:juhayna_smart_production_and_inventory_management_system/features/production/dashboard/production_dashboard_screen.dart';
 import 'package:juhayna_smart_production_and_inventory_management_system/features/production/prod_buttom/production_screen.dart';
+import 'package:juhayna_smart_production_and_inventory_management_system/features/profile/profile_screen.dart';
 
 class OrdersScreen extends StatelessWidget {
   const OrdersScreen({super.key});
@@ -8,15 +9,6 @@ class OrdersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(body: Center(child: Text("Orders")));
-  }
-}
-
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(body: Center(child: Text("Profile")));
   }
 }
 
